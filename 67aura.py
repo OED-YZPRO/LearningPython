@@ -7,7 +7,7 @@ if start == "1":
     print("Great, now let us start. Here are your stats. \n")
 else:
     print("Whatever bozo.")
-    start = "0"
+    exit()
 
 class user:
     def __init__(self, name):
@@ -35,6 +35,8 @@ def roll():
     elif chance == 100:
         print("You got a Mythical aura")
         auras.append("Mythical")
+    else:
+        print("You got nothing lol")
 
 
 def inventory():
@@ -45,7 +47,7 @@ def main():
     print(f"User's Stats \n Name: {player1.name} \n Luck: {player1.luck} \n")
 
     while start == "1":
-        inp = input(" \nRoll an aura - 1 \n Check inventory - 2 \n Exit - 3 \n")
+        inp = input("\nActions: \n Roll an aura - 1 \n Check inventory - 2 \n Exit - 3 \n")
         if inp == "1":
             roll()
         elif inp == "2":
