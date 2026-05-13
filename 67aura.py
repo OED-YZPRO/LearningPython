@@ -21,6 +21,7 @@ player1 = user(name)
 aas = ['uncommon', 'rare', 'epic', 'legendary', 'mythical']
 
 auras = []
+
 def roll():
     print("You rolled an aura")
     chance = random.randint(1, 100)
@@ -34,22 +35,28 @@ def roll():
         print(f"You got an {aas[2]} aura.")
         auras.append(aas[2])
     elif chance in range(91, 95):
-       print(f"You got an {aas[3]} aura.")
+        print(f"You got an {aas[3]} aura.")
         auras.append(aas[3])
     elif chance == 100:
-      print(f"You got an {aas[4]} aura.")
+        print(f"You got an {aas[4]} aura.")
         auras.append(aas[4])
     else:
         print("You got nothing lol")
         
 def shop():
-    while do /= '3':
+    while do != '3':
         do = input('What do you want to do? \n buy potions - 1 \n sell auras - 2 \n exit the shop - 3 \n')
         if do == "1":
             if player1.money >= 50:
                 player1.money -= 50
             else:
                 print("You don't have enough money")
+        elif do == "2":
+            print(aas)
+            sold = input('How many auras are you going to sell?')
+            
+            
+            
         
     
     
@@ -71,17 +78,10 @@ def main():
         elif inp == "3":
             print(f"User's Stats \n Name: {player1.name} \n Luck: {player1.luck} \n")
         elif inp == "4":
-            start = 0
+            start = "0"
             shop()
         else:
             exit()
             
 
 main()
-
-
-
-
-
-
-
