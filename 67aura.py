@@ -4,17 +4,17 @@ name = input("What's up new guy, welcome to 67 RNG. What's your name?\n ")
 start = input(f"Nice to meet you {name}, do you wanna play the game? \n 1 - yes \n 2 - no \n").strip()
 
 if start == "1":
-    print("Great, now let us start. Here are your stats. \n")
-else:
+    print("Great, now let us start. \n")
+elif start == '2':
     print("Whatever bozo.")
     exit()
-
+    
 class user:
     def __init__(self, name):
          self.name = name
          self.luck = 1
          self.money = 0
-         self.potions = 0
+         self.potions = 1
 
 player1 = user(name)
 
@@ -22,9 +22,11 @@ aas = ['uncommon', 'rare', 'epic', 'legendary', 'mythical']
 
 auras = []
 
+c = 1
+
 def roll():
     print("You rolled an aura")
-    chance = random.randint(1, 100)
+    chance = random.randint(c, 100)
     if chance <= 50:
         print(f"You got an {aas[0]} aura.")
         auras.append(aas[0])
@@ -44,44 +46,62 @@ def roll():
         print("You got nothing lol")
         
 def shop():
+    global start
+    
+    do = ''
     while do != '3':
-        do = input('What do you want to do? \n buy potions - 1 \n sell auras - 2 \n exit the shop - 3 \n')
+        do = input('What do you want to do? \n 1 - buy potions \n 2 - sell auras \n 3 - exit the shop \n')
         if do == "1":
             if player1.money >= 50:
                 player1.money -= 50
+                player1.potions += 1
             else:
                 print("You don't have enough money")
         elif do == "2":
             print(aas)
             sold = input('How many auras are you going to sell?')
+        elif do == '3':
+            start = "1"
+        else:
+            pass
             
             
             
         
     
     
-
-
 def inventory():
     print("Your auras: \n")
     print(auras)
 
+stats = (f"User's Stats \n Name: {player1.name} \n Luck: {player1.luck} \n Money: {player1      .money} \n Luck Potions: {player1.potions}")
+
 def main():
-    print(f"User's Stats \n Name: {player1.name} \n Luck: {player1.luck} \n")
+    global start
+    global c
+    print(start)
 
     while start == "1":
-        inp = input("\nActions: \n Roll an aura - 1                                                 \n Check inventory - 2 \n Check stats - 3 \n Shop - 4 \n 6 - drink a potion \n Exit - 5 \n")
+        inp = input("\nActions: \n 1 - Roll an aura                                                 \n 2 - Check inventory \n 3 - Check stats \n 4 - Shop                          \n 5 - drink a potion \n 6 - Exit \n")
         if inp == "1":
             roll()
         elif inp == "2":
             inventory()
         elif inp == "3":
-            print(f"User's Stats \n Name: {player1.name} \n Luck: {player1.luck} \n")
+            print(stats)
         elif inp == "4":
             start = "0"
             shop()
-        else:
+        elif inp == "5":
+            if player1.potions == 0:
+                print("you don't have any potions")
+            else:
+                player1.potions -= 1
+                c += 5
+        elif inp == '6':
             exit()
+        else:
+            pass
             
 
 main()
