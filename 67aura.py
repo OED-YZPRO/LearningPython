@@ -32,7 +32,7 @@ def roll():
     global rare
     global epic
     global legendary
-    global mythic
+    global mythical
     
     print("You rolled an aura")
     chance = random.randint(player1.luck, 100)
