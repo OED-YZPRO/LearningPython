@@ -71,7 +71,7 @@ def shop():
     global rare
     global epic
     global legendary
-    global mythic
+    global mythical
     auras = [f'uncommon - {uncommon}', f'rare - {rare}', 
          f'epic - {epic}', f'legendary - {legendary}',
          f'mythical - {mythical}']
@@ -138,6 +138,7 @@ def main():
             else:
                 player1.potions -= 1
                 player1.luck += 5
+                print("you drank a potion. luck +5")
         elif inp == '6':
             exit()
         else:
